@@ -1,0 +1,92 @@
+:root {
+    /* CHANGES COLORS TO MATCH PORTFOLIO SCHEME */
+    --ja-primary-color: #001e43;
+    --ja-secondary-color: #ff993b;
+    --ja-dark-color: #1b1b1b;
+    --ja-light-color: #dfe3e4;
+
+    --ja-navbar-toggler-glow: rgba(255, 153, 59, .6);
+    --ja-navbar-toggler-color: #ff993b;
+
+}
+
+
+
+
+
+html,
+body{
+    height: 100%;
+
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+/* START: nav bar overrides */
+#mainNav {
+    background-color: var(--ja-primary-color);
+}
+
+#mainNav button {
+    border-color: var(--ja-secondary-color);
+}
+
+.navbar-toggler {
+    color: var(--ja-navbar-toggler-glow);
+}
+
+.navbar-toggler-icon-ja {
+    color: var(--ja-navbar-toggler-color);
+    font-size: 1.5rem;
+}
+
+/*END: nav bar overrides */
+
+/* FOOTER STYLES START */
+
+footer {
+    background-color: var(--ja-primary-color);
+    color: var(--ja-light-color);
+}
+
+.socialicons {
+    font-size: 2rem;
+    padding-left: .5rem;
+    color: var(--ja-light-color);
+}
+
+.socialicons:hover {
+    color: var(--ja-secondary-color);
+}
+
+/* FOOTER STYLES END */
+
+.appLogo {
+    max-width: 400px;
+}
+
+.checkList {
+    list-style-type: none;
+}
+
+.checkList>li i {
+    color: var(--ja-secondary-color);
+    padding-right: .5rem;
+}
+
+.devIcons {
+    font-size: 4rem;
+    padding-left: .5rem;
+}
