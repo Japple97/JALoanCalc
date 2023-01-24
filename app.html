@@ -68,9 +68,81 @@
     </header>
 
     <main class="content container">
-        <h1>APP UI GOES HERE</h1>
-        <input id="message" placeholder="Enter a Message..." type="text">
-        <button class="btn btn-primary" type="button" id="btnSubmit">Display a Message</button>
+        <div class="row gy-2 w-100">
+            <div class="col border-2">
+                <h1 class="fw-bold ms-3 text-center">Loanster</h1>
+            </div>
+        </div>
+        <div class="row row-cols-1 mt-2">
+            <div class="col col-md-3 border border-3 mx-auto mb-3">
+                <!--INPUT IDS-->
+                <form id="loanInfo">
+                    <div class="mb-0 p-2">
+                        <label for="loanAmount" class="form-label">Loan Amount</label>
+                        <input type="number" class="form-control" id="loanAmount" placeholder="Enter loan amount..." />
+                    </div>
+                    <div class="mb-0 p-2">
+                        <label for="termLength" class="form-label">Month Terms</label>
+                        <input type="number" class="form-control" id="termLength" placeholder="Enter term length..." />
+                    </div>
+                    <div class="mb-0 p-2">
+                        <label for="interestRate" class="form-label">Interest Rate</label>
+                        <input type="number" class="form-control" id="interestRate"
+                            placeholder="Enter loan amount..." />
+                    </div>
+                    <div class="mb-2 p-2 d-flex justify-content-end">
+                        <a class="btn btn-danger mt-2" onclick="getValues()">Calculate</a>
+                    </div>
+                </form>
+            </div>
+            <!--MONTLY PAYMENT, TOTAL PRINCIPLE/INTEREST/COST IDs-->
+            <div class="col col-md-8 border border-3">
+                <form id="displayLoanInfo">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-center">Your Monthly Payments</h2>
+                        </div>
+                        <div class="col-12">
+                            <h1 id="paymentAmount" class="text-center">$0.00</h1>
+                        </div>
+                        <div class="col-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col me-auto">Total Principal</div>
+                                    <div class="col ms-auto mb-4 d-flex justify-content-end" id="totalPrincipal">$0.00
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col me-auto">Total Interest</div>
+                                    <div class="col ms-auto mb-4 d-flex justify-content-end" id="totalInterest">$0.00
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col me-auto">Total Cost</div>
+                                    <div class="col ms-auto d-flex justify-content-end" id="totalCost">$0.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--Table IDS-->
+            <div class="col-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th id="monthRow">Month</th>
+                            <th id="paymentRow">Payment</th>
+                            <th id="principalRow">Principal</th>
+                            <th id="interestRow">Interest</th>
+                            <th id="totalInterestRow">Total Interest</th>
+                            <th id="balanceRow">Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mortgageTable"></tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
 
@@ -93,6 +165,20 @@
             </div>
         </div>
     </footer>
+
+    <!--Templates-->
+    <!--table row template-->
+    <template id="loanTableTemplate">
+        <tr>
+            <td data-id="month"></td>
+            <td data-id="payment"></td>
+            <td data-id="principal"></td>
+            <td data-id="interest"></td>
+            <td data-id="totalInterest"></td>
+            <td data-id="balance"></td>
+        </tr>
+    </template>
+
 
     <!--Bootstrap Script-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
